@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 import { app } from "./app.js";
-import cloudinary from 'cloudinary'
+import cloudinary from 'cloudinary';
+import cors from "cors";
 
 config();
 
@@ -10,6 +11,8 @@ cloudinary.v2.config({
     api_secret: process.env.CLOUDINARY_SECREAT
 });
 
+
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("HELLO WORLD");
