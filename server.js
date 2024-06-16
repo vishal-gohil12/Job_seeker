@@ -11,7 +11,6 @@ cloudinary.v2.config({
     api_secret: process.env.CLOUDINARY_SECREAT
 });
 
-
 app.use(cors());
 
 app.get("/", (req, res) => {

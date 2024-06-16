@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
+import mongoose from "mongoose";
 
 import { applicationRoutes } from "./Routes/applicationRoute.js";
 import { jobRouter } from "./Routes/jobRouter.js";
@@ -36,6 +37,8 @@ app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicationRoutes);
 
 dbConnection();
+
+mongoose.set('debug', true);
 
 
 app.use(errorMiddleware);
