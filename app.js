@@ -11,11 +11,15 @@ import { errorMiddleware } from "./Middlewares/Error.js"
 
 export const app = express();
 
-app.use(cors({
-    origin: "http://localhost:5173"
-}));
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true,
+};
 
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
